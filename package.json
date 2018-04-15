@@ -1,10 +1,9 @@
 {
-  "name": "nes",
-  "description": "WebSocket adapter plugin for hapi routes",
+  "name": "@qogni/nes-uws",
+  "description": "Nes server-side plugin using uWebsockets",
   "version": "8.0.1",
-  "repository": "git://github.com/hapijs/nes",
+  "repository": "git://github.com/Qogni/nes",
   "main": "lib/index.js",
-  "browser": "dist/client.js",
   "keywords": [
     "hapi",
     "plugin",
@@ -22,18 +21,16 @@
     "iron": "5.x.x",
     "joi": "13.x.x",
     "teamwork": "3.x.x",
-    "ws": "5.x.x"
+    "uws": "^9.14.0"
   },
   "peerDependencies": {
     "hapi": "17.x.x"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-minify": "^0.2.0",
     "code": "5.x.x",
     "hapi": "17.x.x",
-    "lab": "15.x.x"
+    "lab": "15.x.x",
+    "ws": "5.x.x"
   },
   "babel": {
     "presets": [
@@ -41,9 +38,7 @@
     ]
   },
   "scripts": {
-    "build-client": "mkdir -p dist; babel lib/client.js --out-file dist/client.js",
-    "test": "npm run-script build-client && node node_modules/lab/bin/lab -a code -t 100 -L",
-    "prepare": "npm run-script build-client",
+    "test": "node node_modules/lab/bin/lab -a code -t 100 -L",
     "test-cov-html": "node node_modules/lab/bin/lab -a code -r html -o coverage.html"
   },
   "license": "BSD-3-Clause"
